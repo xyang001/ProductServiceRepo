@@ -23,4 +23,32 @@
       </releases>
     </repository>
   </repositories>
+
+    <profiles>
+        <!-- The bpms profile enables the BPM Suite repository and the needed kmodule dependency -->
+        <profile>
+            <id>bpms</id>
+		    <activation>
+		        <activeByDefault>true</activeByDefault>
+		    </activation>
+            <!-- Enable BPM Suite Repository -->
+            <repositories>
+                <repository>
+                    <id>bpms-m2-repo</id>
+                    <name>BRMS M2 Repo</name>
+                    <url>http://localhost:8180/business-central/maven2/</url>
+                </repository>
+            </repositories>
+
+            <!-- Include BRMS Kmodule dependency -->
+            <dependencies>
+                <dependency>
+                    <groupId>com.digitalglobe.iipfoundations</groupId>
+                    <artifactId>IIPProductService</artifactId>
+                    <version>1.0-SNAPSHOT</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
 </project>
